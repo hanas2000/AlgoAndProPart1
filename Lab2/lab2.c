@@ -6,7 +6,7 @@ int main() {
     int a=0;
     int b=0;
 
-    for(;a<100;a+=2)
+    for(;a<101;a+=2)
     {
         b += a;
     }
