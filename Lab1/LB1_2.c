@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-
 int main()
 {
     int m,n,k;
