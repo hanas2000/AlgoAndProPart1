@@ -27,8 +27,8 @@ int main(){
             n++;
         }while(fabs(el)>0.0001);
     
-        printf("Result1: %lf\n",result1);
-        printf("Result2: %lf\n",result2);
+        printf("Result1: %lf |",result1);
+        printf("Result2: %lf |",result2);
         printf("Result3: %lf\n",result3);
     }
 
