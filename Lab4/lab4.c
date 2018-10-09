@@ -1,51 +1,57 @@
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+
+#define ARR_SIZE 10
 int main()
 {
-    int a;
+    int a, i, k;
+    int b[ARR_SIZE];
+    int d[ARR_SIZE];
+    int l=0;
     do
     {
+    
         printf("Put the number for array:");
         scanf("%d",&a);
-    }while(a<0||a>100);
-    int b[a];
-    for(int i=0;i<a;i++)
-        {
+    } while(a<0||a>ARR_SIZE);
+    
+    
+    for(i=0;i<a;i++)
+    {
             b[i]=rand()%2;
             printf("%d ",b[i]);
-        }
+    }
     printf("\n");
-    int d[a-1];
-    int l=0;
-    for(int k=0;k<a;k++)
+    
+    for(k=0;k<a;k++)
+    {
+        if(!l && b[k]==0)
         {
-            if(b[k]==0&&l==0)
-            {
             l++;
-            }
-            else 
-            {
-            d[k-l]=b[k];
-            printf("%d ",d[k-l]);
-            }
+            continue;
         }
+          
+        d[k-l] = b[k];
+        printf("%d ",d[k-l]);
+    }
     printf("\n");
-    int h[200];
+    
     int f=0;
-    for(int y=0;y<a-1;y++)
+    for(int y=0;y<a-l;y++)
         {
-            if(y!=0&&y%2==0)
+            int c = y + f;
+            if(y && y%2==0 && c < ARR_SIZE - 1)
             {
-                h[y+f]=d[y];
-                printf("%d ",h[y+f]);
+                b[c] = d[y];
+                printf("%d ",b[c]);
                 f++;
-                h[y+f]=d[y-1]+2;
-                printf("%d ",h[y+f]);
-            }else
+                b[c + 1] = d[y-1]+2;
+                printf("%d ",b[y+f]);
+                
+            }else if(c < ARR_SIZE)
             {
-                h[y+f]=d[y];
-                printf("%d ",h[y+f]);
+                b[c] = d[y];
+                printf("%d ",b[c]);
             }
         }
     printf("\n");
